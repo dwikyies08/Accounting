@@ -11,6 +11,7 @@
                     </div>
                 </div>
             </div>
+            <div id="svelte-app"></div>
             <div class="row">
                 <div id="filterBox" class="col-md-4" style="{{ request('filter') == '1' ? '' : 'display: none;' }}">
                     <div class="card rounded-default p-3 bg-dark text-white">

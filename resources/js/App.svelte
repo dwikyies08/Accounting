@@ -8,7 +8,7 @@
 
 <main>
   <h1>Counter: {count}</h1>
-  <button on:click={increment}>Tambah</button>
+  <button type="button" on:click={increment}>Tambah</button>
 </main>
 
 <style>

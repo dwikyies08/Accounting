@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 window.Swal = Swal;
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -8,7 +8,11 @@ window.Swal = Swal;
 // import 'select2/dist/css/select2.min.css';
 // import 'select2';
 
-import { formatRupiah, parseRupiahToFloat, registerRupiahFormatter } from './utils/rupiah.js';
+import {
+    formatRupiah,
+    parseRupiahToFloat,
+    registerRupiahFormatter,
+} from "./utils/rupiah.js";
 
 window.formatRupiah = formatRupiah;
 window.parseRupiahToFloat = parseRupiahToFloat;
@@ -19,24 +23,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // Contoh lain jika kamu pakai input dinamis:
 });
 
-import Alpine from 'alpinejs'
- 
-window.Alpine = Alpine
- 
-Alpine.start()
+import Alpine from "alpinejs";
 
-import App from './App.svelte';
+window.Alpine = Alpine;
 
-const app = new App({
-    target: document.getElementById('svelte-app'),
-});
+Alpine.start();
 
-export default app;
+import { mount } from 'svelte';
+import App from './svelte/App.svelte';
+
+const el = document.getElementById("svelte-app");
+
+if (el) {
+    const items = JSON.parse(el.dataset.items || '[]');
+
+    mount(App, {
+        props: {
+            items,
+        },
+        target: el,
+    });
+}
+
+// App.mount('#svelte-app', {
+//   props: {
+//     items
+//   }
+// });
 
 // Contoh inisialisasi otomatis
-
-
-
 
 /**
  * The following block of code may be used to automatically register your
@@ -48,7 +63,6 @@ export default app;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
