@@ -63,7 +63,7 @@
                         <li><a class="{{ set_active(['departemen/list/page']) }}" href="{{ route('departemen/list/page') }}"><i class="fas fa-warehouse ml-0 mr-3"></i>Departemen</a></li>
                         <li class="submenu"> <a href="#"></i> <span> Proyek </span> <span class="menu-arrow"></span></a>
                             <ul class="submenu_class" style="display: none;">
-                                <li class="submenu"> <a href="#"></i> <span> Proyek Perumahan </span> <span class="menu-arrow"></span></a>
+                                {{-- <li class="submenu"> <a href="#"></i> <span> Proyek Perumahan </span> <span class="menu-arrow"></span></a>
                                     <ul class="submenu_class" style="display: none;">
                                         <li><a class="{{ set_active(['cluster/list/page']) }}" href="{{ route('cluster/list/page') }}">Cluster</a></li>
                                         <li><a class="{{ set_active(['proyek/list/page']) }}" href="{{ route('proyek/list/page') }}">Unit</a></li>
@@ -71,7 +71,7 @@
                                         <li><a class="{{ set_active(['proyek/list/page']) }}" href="{{ route('proyek/list/page') }}">Fasum</a></li>
                                         <li><a class="{{ set_active(['proyek/list/page']) }}" href="{{ route('proyek/list/page') }}">Fasos</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <li><a class="{{ set_active(['proyek/list/page']) }}" href="{{ route('proyek/list/page') }}">Unit</a></li>
                                 <li><a class="{{ set_active(['proyekumum/list/page']) }}" href="{{ route('proyekumum/list/page') }}">Proyek UMUM</a></li>
                             </ul>
