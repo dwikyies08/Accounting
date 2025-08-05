@@ -624,6 +624,8 @@ Route::controller(AktivaTetapController::class)->group(function () {
     Route::post('/aktivatetap/update/{id}', [AktivaTetapController::class, 'update'])->name('aktivatetap/update');
     Route::post('/aktivatetap/delete', [AktivaTetapController::class, 'delete'])->name('aktivatetap/delete');
     Route::get('get-aktivatetap-data', [AktivaTetapController::class, 'getAktivaTetap'])->name('get-aktivatetap-data');
+    Route::get('get-akuns-data', [AktivaTetapController::class, 'tambahAktivaTetap'])->name('get-akuns-data');
+    Route::get('/get-detail-akun', [AktivaTetapController::class, 'getDetailAktivaTetap']);
 });
 
 Route::controller(TipeAktivaTetapPajakController::class)->group(function () {
