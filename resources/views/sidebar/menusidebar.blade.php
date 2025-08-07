@@ -57,7 +57,7 @@
                         <li><a class="{{ set_active(['tipepelanggan/list/page']) }}" href="{{ route('tipepelanggan/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Tipe Pelanggan</a></li>
                         <li><a class="{{ set_active(['pelanggan/list/page']) }}" href="{{ route('pelanggan/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Pelanggan</a></li>
                         <li><a class="{{ set_active(['pegawai/list/page']) }}" href="{{ route('pegawai/list/page') }}"><i class="fas fa-briefcase ml-0 mr-3"></i>Pegawai</a></li>
-                        <li><a class="{{ set_active(['konsumen/list/page']) }}" href="{{ route('konsumen/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Konsumen</a></li>
+                        {{-- <li><a class="{{ set_active(['konsumen/list/page']) }}" href="{{ route('konsumen/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Konsumen</a></li> --}}
                         <li><a class="{{ set_active(['pemasok/list/page']) }}" href="{{ route('pemasok/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Pemasok</a></li>
                         <li><a class="{{ set_active(['penjual/list/page']) }}" href="{{ route('penjual/list/page') }}"><i class="fas fa-users ml-0 mr-3"></i>Penjual</a></li>
                         <li><a class="{{ set_active(['departemen/list/page']) }}" href="{{ route('departemen/list/page') }}"><i class="fas fa-warehouse ml-0 mr-3"></i>Departemen</a></li>

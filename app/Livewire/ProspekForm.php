@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Perumahan;
+namespace App\Livewire;
 
 use App\Models\Prospek;
 use Illuminate\Support\Facades\DB;

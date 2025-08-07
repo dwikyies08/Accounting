@@ -27,8 +27,6 @@ use App\Http\Controllers\GudangController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\ClusterController;
-use App\Http\Controllers\KonsumenController;
 use App\Http\Controllers\ProyekUmumController;
 use App\Http\Controllers\PenyesuaianBarangController;
 use App\Http\Controllers\PermintaanPembelianController;
@@ -58,8 +56,9 @@ use App\Http\Controllers\Persediaan\HargaJualController;
 use App\Http\Controllers\Persediaan\BarangPerGudangController;
 use App\Http\Controllers\Persediaan\PembiayaanPesananController;
 use App\Http\Controllers\Persediaan\PencatatanNomorSerialController;
-use App\Livewire\Perumahan\KlusterPerumahanForm;
-use App\Livewire\Perumahan\ProspekForm;
+use App\Livewire\KlusterPerumahanForm;
+use App\Livewire\KonsumenForm;
+use App\Livewire\ProspekForm;
 use App\Models\PindahBarang;
 use App\Models\Room;
 use App\Models\TipeAktivaTetapPajak;
@@ -432,16 +431,16 @@ Route::controller(BarangController::class)->group(function () {
 // });
 
 
-// ----------------------------- Konsumen -----------------------------//
-Route::controller(KonsumenController::class)->group(function () {
-    Route::get('konsumen/list/page', 'daftarKonsumen')->middleware('auth')->name('konsumen/list/page');
-    Route::get('konsumen/add/new', 'tambahKonsumen')->middleware('auth')->name('konsumen/add/new');
-    Route::post('form/konsumen/save', 'simpanKonsumen')->middleware('auth')->name('form/konsumen/save');
-    Route::get('/konsumen/edit/{id}', [KonsumenController::class, 'editKonsumen'])->name('konsumen/edit');
-    Route::post('/konsumen/update/{id}', [KonsumenController::class, 'updateKonsumen'])->name('konsumen/update');
-    Route::post('/konsumen/delete', [KonsumenController::class, 'hapusKonsumen'])->name('konsumen/delete');
-    Route::get('get-konsumen-data', [KonsumenController::class, 'dataKonsumen'])->name('get-konsumen-data');
-});
+// ----------------------------- Konsumen (deprecated) -----------------------------//
+// Route::controller(KonsumenController::class)->group(function () {
+//     Route::get('konsumen/list/page', 'daftarKonsumen')->middleware('auth')->name('konsumen/list/page');
+//     Route::get('konsumen/add/new', 'tambahKonsumen')->middleware('auth')->name('konsumen/add/new');
+//     Route::post('form/konsumen/save', 'simpanKonsumen')->middleware('auth')->name('form/konsumen/save');
+//     Route::get('/konsumen/edit/{id}', [KonsumenController::class, 'editKonsumen'])->name('konsumen/edit');
+//     Route::post('/konsumen/update/{id}', [KonsumenController::class, 'updateKonsumen'])->name('konsumen/update');
+//     Route::post('/konsumen/delete', [KonsumenController::class, 'hapusKonsumen'])->name('konsumen/delete');
+//     Route::get('get-konsumen-data', [KonsumenController::class, 'dataKonsumen'])->name('get-konsumen-data');
+// });
 
 
 // ----------------------------- Proyek Umum -----------------------------//
@@ -703,14 +702,12 @@ Route::controller(ProspekController::class)->group(function () {
     Route::get('get-prospek-data', 'getProspek')->name('get-prospek-data');
 });
 
+Route::get('konsumenmarketing/add/new', KonsumenForm::class)->middleware('auth')->name('konsumenmarketing/add/new');
+Route::get('/konsumenmarketing/edit/{id}', KonsumenForm::class)->name('konsumenmarketing/edit');
 Route::controller(KonsumenMarketingController::class)->group(function () {
     Route::get('konsumenmarketing/list/page', 'KonsumenMarketingList')->middleware('auth')->name('konsumenmarketing/list/page');
-    Route::get('konsumenmarketing/add/new', 'KonsumenMarketingAddNew')->middleware('auth')->name('konsumenmarketing/add/new');
-    Route::post('form/konsumenmarketing/save', 'saveRecordKonsumenMarketing')->middleware('auth')->name('form/konsumenmarketing/save');
-    Route::get('/konsumenmarketing/edit/{id}', [KonsumenMarketingController::class, 'edit'])->name('konsumenmarketing/edit');
-    Route::post('/konsumenmarketing/update/{id}', [KonsumenMarketingController::class, 'update'])->name('konsumenmarketing/update');
     Route::post('/konsumenmarketing/delete', [KonsumenMarketingController::class, 'delete'])->name('konsumenmarketing/delete');
-    Route::get('get-konsumen-marketing-data', [KonsumenMarketingController::class, 'getKonsumenMarketing'])->name('get-konsumen-marketing-data');
+    Route::get('get-konsumen-data', [KonsumenMarketingController::class, 'getKonsumen'])->name('get-konsumen-data');
 });
 
 // ----------------------------- Marketing sub-perumahan - (INTERNSHIP TEAM) ----------------------------//
