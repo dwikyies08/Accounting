@@ -27,8 +27,6 @@ use App\Http\Controllers\GudangController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\BarangController;
-use App\Http\Controllers\ClusterController;
-use App\Http\Controllers\KonsumenController;
 use App\Http\Controllers\ProyekUmumController;
 use App\Http\Controllers\PenyesuaianBarangController;
 use App\Http\Controllers\PermintaanPembelianController;
@@ -58,6 +56,9 @@ use App\Http\Controllers\Persediaan\HargaJualController;
 use App\Http\Controllers\Persediaan\BarangPerGudangController;
 use App\Http\Controllers\Persediaan\PembiayaanPesananController;
 use App\Http\Controllers\Persediaan\PencatatanNomorSerialController;
+use App\Livewire\KlusterPerumahanForm;
+use App\Livewire\KonsumenForm;
+use App\Livewire\ProspekForm;
 use App\Models\PindahBarang;
 use App\Models\Room;
 use App\Models\TipeAktivaTetapPajak;
@@ -418,28 +419,28 @@ Route::controller(BarangController::class)->group(function () {
 // });
 
 
-// ----------------------------- Cluster -----------------------------//
-Route::controller(ClusterController::class)->group(function () {
-    Route::get('cluster/list/page', 'daftarCluster')->middleware('auth')->name('cluster/list/page');
-    Route::get('cluster/add/new', 'tambahCluster')->middleware('auth')->name('cluster/add/new');
-    Route::post('form/cluster/save', 'simpanCluster')->middleware('auth')->name('form/cluster/save');
-    Route::get('/cluster/edit/{id}', [ClusterController::class, 'editCluster'])->name('cluster/edit');
-    Route::post('/cluster/update/{id}', [ClusterController::class, 'updateCluster'])->name('cluster/update');
-    Route::post('/cluster/delete', [ClusterController::class, 'hapusCluster'])->name('cluster/delete');
-    Route::get('get-cluster-data', [ClusterController::class, 'dataCluster'])->name('get-cluster-data');
-});
+// ----------------------------- Cluster (deprecated) -----------------------------//
+// Route::controller(ClusterController::class)->group(function () {
+//     Route::get('cluster/list/page', 'daftarCluster')->middleware('auth')->name('cluster/list/page');
+//     Route::get('cluster/add/new', 'tambahCluster')->middleware('auth')->name('cluster/add/new');
+//     Route::post('form/cluster/save', 'simpanCluster')->middleware('auth')->name('form/cluster/save');
+//     Route::get('/cluster/edit/{id}', [ClusterController::class, 'editCluster'])->name('cluster/edit');
+//     Route::post('/cluster/update/{id}', [ClusterController::class, 'updateCluster'])->name('cluster/update');
+//     Route::post('/cluster/delete', [ClusterController::class, 'hapusCluster'])->name('cluster/delete');
+//     Route::get('get-cluster-data', [ClusterController::class, 'dataCluster'])->name('get-cluster-data');
+// });
 
 
-// ----------------------------- Konsumen -----------------------------//
-Route::controller(KonsumenController::class)->group(function () {
-    Route::get('konsumen/list/page', 'daftarKonsumen')->middleware('auth')->name('konsumen/list/page');
-    Route::get('konsumen/add/new', 'tambahKonsumen')->middleware('auth')->name('konsumen/add/new');
-    Route::post('form/konsumen/save', 'simpanKonsumen')->middleware('auth')->name('form/konsumen/save');
-    Route::get('/konsumen/edit/{id}', [KonsumenController::class, 'editKonsumen'])->name('konsumen/edit');
-    Route::post('/konsumen/update/{id}', [KonsumenController::class, 'updateKonsumen'])->name('konsumen/update');
-    Route::post('/konsumen/delete', [KonsumenController::class, 'hapusKonsumen'])->name('konsumen/delete');
-    Route::get('get-konsumen-data', [KonsumenController::class, 'dataKonsumen'])->name('get-konsumen-data');
-});
+// ----------------------------- Konsumen (deprecated) -----------------------------//
+// Route::controller(KonsumenController::class)->group(function () {
+//     Route::get('konsumen/list/page', 'daftarKonsumen')->middleware('auth')->name('konsumen/list/page');
+//     Route::get('konsumen/add/new', 'tambahKonsumen')->middleware('auth')->name('konsumen/add/new');
+//     Route::post('form/konsumen/save', 'simpanKonsumen')->middleware('auth')->name('form/konsumen/save');
+//     Route::get('/konsumen/edit/{id}', [KonsumenController::class, 'editKonsumen'])->name('konsumen/edit');
+//     Route::post('/konsumen/update/{id}', [KonsumenController::class, 'updateKonsumen'])->name('konsumen/update');
+//     Route::post('/konsumen/delete', [KonsumenController::class, 'hapusKonsumen'])->name('konsumen/delete');
+//     Route::get('get-konsumen-data', [KonsumenController::class, 'dataKonsumen'])->name('get-konsumen-data');
+// });
 
 
 // ----------------------------- Proyek Umum -----------------------------//
@@ -696,24 +697,20 @@ Route::controller(PencatatanNomorSerialController::class)->group(function () {
 
 // ----------------------------- Marketing - (INTERNSHIP TEAM) ----------------------------//
 
+Route::get('prospek/add/new', ProspekForm::class)->middleware('auth')->name('prospek/add/new');
+Route::get('/prospek/edit/{id}', ProspekForm::class)->name('prospek/edit');
 Route::controller(ProspekController::class)->group(function () {
     Route::get('prospek/list/page', 'ProspekList')->middleware('auth')->name('prospek/list/page');
-    Route::get('prospek/add/new', 'ProspekAddNew')->middleware('auth')->name('prospek/add/new');
-    Route::post('form/prospek/save', 'saveRecordProspek')->middleware('auth')->name('form/prospek/save');
-    Route::get('/prospek/edit/{id}', [ProspekController::class, 'edit'])->name('prospek/edit');
-    Route::post('/prospek/update/{id}', [ProspekController::class, 'update'])->name('prospek/update');
-    Route::post('/prospek/delete', [ProspekController::class, 'delete'])->name('prospek/delete');
-    Route::get('get-prospek-data', [ProspekController::class, 'getProspek'])->name('get-prospek-data');
+    Route::post('/prospek/delete', 'delete')->name('prospek/delete');
+    Route::get('get-prospek-data', 'getProspek')->name('get-prospek-data');
 });
 
+Route::get('konsumenmarketing/add/new', KonsumenForm::class)->middleware('auth')->name('konsumenmarketing/add/new');
+Route::get('/konsumenmarketing/edit/{id}', KonsumenForm::class)->name('konsumenmarketing/edit');
 Route::controller(KonsumenMarketingController::class)->group(function () {
     Route::get('konsumenmarketing/list/page', 'KonsumenMarketingList')->middleware('auth')->name('konsumenmarketing/list/page');
-    Route::get('konsumenmarketing/add/new', 'KonsumenMarketingAddNew')->middleware('auth')->name('konsumenmarketing/add/new');
-    Route::post('form/konsumenmarketing/save', 'saveRecordKonsumenMarketing')->middleware('auth')->name('form/konsumenmarketing/save');
-    Route::get('/konsumenmarketing/edit/{id}', [KonsumenMarketingController::class, 'edit'])->name('konsumenmarketing/edit');
-    Route::post('/konsumenmarketing/update/{id}', [KonsumenMarketingController::class, 'update'])->name('konsumenmarketing/update');
     Route::post('/konsumenmarketing/delete', [KonsumenMarketingController::class, 'delete'])->name('konsumenmarketing/delete');
-    Route::get('get-konsumen-marketing-data', [KonsumenMarketingController::class, 'getKonsumenMarketing'])->name('get-konsumen-marketing-data');
+    Route::get('get-konsumen-data', [KonsumenMarketingController::class, 'getKonsumen'])->name('get-konsumen-data');
 });
 
 // ----------------------------- Marketing sub-perumahan - (INTERNSHIP TEAM) ----------------------------//
@@ -721,14 +718,12 @@ Route::controller(SitePlanController::class)->group(function () {
     Route::get('siteplane/page', 'SitePlanView')->middleware('auth')->name('siteplane/page');
 });
 
+Route::get('klusterperumahan/add/new', KlusterPerumahanForm::class)->middleware('auth')->name('klusterperumahan/add/new');
+Route::get('/klusterperumahan/edit/{id}', KlusterPerumahanForm::class)->name('klusterperumahan/edit');
 Route::controller(KlusterPerumahanController::class)->group(function () {
     Route::get('klusterperumahan/list/page', 'KlusterPerumahanList')->middleware('auth')->name('klusterperumahan/list/page');
-    Route::get('klusterperumahan/add/new', 'KlusterPerumahanAddNew')->middleware('auth')->name('klusterperumahan/add/new');
-    Route::post('form/klusterperumahan/save', 'saveRecordKlusterPerumahan')->middleware('auth')->name('form/klusterperumahan/save');
-    Route::get('/klusterperumahan/edit/{id}', [KlusterPerumahanController::class, 'edit'])->name('klusterperumahan/edit');
-    Route::post('/klusterperumahan/update/{id}', [KlusterPerumahanController::class, 'update'])->name('klusterperumahan/update');
-    Route::post('/klusterperumahan/delete', [KlusterPerumahanController::class, 'delete'])->name('klusterperumahan/delete');
-    Route::get('get-konsumen-marketing-data', [KlusterPerumahanController::class, 'getKlusterPerumahan'])->name('get-konsumen-marketing-data');
+    Route::post('/klusterperumahan/delete', 'delete')->name('klusterperumahan/delete');
+    Route::get('get-cluster-data', 'dataCluster')->name('get-cluster-data');
 });
 
 Route::controller(KavlingController::class)->group(function () {
