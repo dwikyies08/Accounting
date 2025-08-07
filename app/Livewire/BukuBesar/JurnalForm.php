@@ -3,9 +3,9 @@
 namespace App\Livewire\BukuBesar;
 
 use App\Models\Akun;
-use App\Models\BukuBesar\Jurnal;
-use App\Models\BukuBesar\JurnalDetail;
+use App\Models\DetailJurnal;
 use App\Models\Dokumen;
+use App\Models\Jurnal;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Title;
 use Livewire\Component;
@@ -88,7 +88,7 @@ class JurnalForm extends Component
         try {
             $jurnal = Jurnal::updateOrCreate(['id' => $this->jurnalId], $data);
             foreach($this->detail as $i => $detail){
-                JurnalDetail::updateOrCreate(
+                DetailJurnal::updateOrCreate(
                     ['id' => isset($this->detailIds[$i]) ? $this->detailIds[$i] : null],
                     [
                         'jurnal_id' => $jurnal->id,
@@ -182,7 +182,7 @@ class JurnalForm extends Component
 
         if(isset($this->detailIds[$index])){
             $detailId = $this->detailIds[$index];
-            JurnalDetail::destroy($detailId);
+            DetailJurnal::destroy($detailId);
             array_splice($this->detailIds, $index, 1);
         }
     }

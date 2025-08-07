@@ -3,10 +3,10 @@
 namespace App\Livewire\BukuBesar;
 
 use App\Models\Akun;
-use App\Models\BukuBesar\AnggaranAkun;
-use Illuminate\Support\Facades\DB;
-use Livewire\Attributes\Title;
 use Livewire\Component;
+use App\Models\AnggaranAkun;
+use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\DB;
 
 class AnggaranAkunForm extends Component
 {

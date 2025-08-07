@@ -193,7 +193,7 @@ class PenerimaanLainnyaForm extends Component
         }
         $departemen = DB::table('departemen')->get(['id', 'nama_departemen']);
         $proyek = DB::table('proyek')->get(['id', 'nama_proyek']);
-        $akun = DB::table('akun')->get(['id', 'nama_akun_indonesia']);
+        $akun = DB::table('akun')->where('tipe_id', '=', 1)->get(['id', 'nama_akun_indonesia']);
 
         return view('bukubesar.penerimaanlainnya.form', compact('departemen', 'proyek', 'akun'));
     }
