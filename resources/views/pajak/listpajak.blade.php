@@ -14,20 +14,21 @@
 
         <div class="row">
             <div class="col-md-3">
-                <div class="card rounded-default p-3 bg-dark text-white">
-                    <div class="form-group">
-                        <label>Pencarian</label>
-                        <input type="text" name="kode" class="form-control key-filter" placeholder="Kode Pajak">
-                    </div> 
-                    <div class="form-group">
-                        <input type="text" name="nama" class="form-control key-filter" placeholder="Nama Pajak">
-                    </div>
+                <div class="card rounded-default p-3 filterBox text-white">
+                    <form method="GET" action="{{ route('pajak/list/page') }}">
+                        <div class="form-group mb-1">
+                            <label>Pencarian</label>
+                            <input type="text" name="kode_pajak" class="form-control form-control-sm" onchange="this.form.submit()" placeholder="Kode Pajak" value="{{ request('kode_pajak') }}">
+                        </div> 
+                        <div class="form-group mb-1">
+                            <input type="text" name="nama" class="form-control form-control-sm" onchange="this.form.submit()" placeholder="Nama Pajak" value="{{ request('nama') }}">
+                        </div>
+                    </form>
                 </div>
             </div>
-
             <div class="col-md-9">
                 <div class="card card-table">
-                    <div class="card-body booking_card">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover table-center mb-0" id="PajakList">
                                 <thead class="thead-dark">
@@ -75,7 +76,7 @@
                     url: "{{ route('get-pajak-data') }}",
                     data: function(d) {
                         d.nama = $('input[name=nama]').val(),
-                        d.kode = $('input[name=kode]').val();
+                        d.kode_pajak = $('input[name=kode_pajak]').val();
                     }
                 },
                 dom: "<'row'<'col-sm-12'B>>" +
@@ -140,32 +141,33 @@
                     {
                         data: 'nama',
                         name: 'nama',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                     {
-                        data: 'kode',
-                        name: 'kode',
-                        orderable: true,
-                        searchable: true
+                        data: 'kode_pajak',
+                        name: 'kode_pajak',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'deskripsi',
                         name: 'deskripsi',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'nilai_persentase',
                         name: 'nilai_persentase',
-                        orderable: true,
-                        searchable: true
+                        orderable: false,
+                        searchable: false
                     },
                 ]
             });
 
-            $('.key-filter').on('keyup', function(e){
-                table.draw()
+            $('form').on('submit', function(e) {
+                e.preventDefault();
+                table.draw();
             });
 
             $('#select_all').on('click', function() {

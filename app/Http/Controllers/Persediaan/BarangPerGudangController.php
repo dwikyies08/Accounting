@@ -89,6 +89,4 @@ class BarangPerGudangController extends Controller
             'columnsDynamic'  => $gudangs->pluck('nama_gudang', 'id'),
         ]);
     }
-
-
 }

@@ -3,11 +3,15 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+<<<<<<< HEAD
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use App\Models\ModulUtama\Aktiva\AkunAktiva;
 use Database\Seeders\MetodePenyusutanSeeder;
+=======
+use Illuminate\Database\Seeder;
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +20,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         User::factory(10)->create();
 
         User::factory()->create([
@@ -26,8 +31,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Superadmin',
             'email' => 'superadmin@gmail.com',
         ]);
-
-        \App\Models\Barang::factory()->count(50)->create();
 
         // Panggil seeder lain
         $this->call([
@@ -75,7 +78,16 @@ class DatabaseSeeder extends Seeder
             MasterBiayaKonsumenSeeder::class,
             PekerjaSeeder::class,
             SiklusPembayaranSeeder::class,
-            BarangSeeder::class,
         ]);
+=======
+        \App\Models\User::factory(10)->create();
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        
+        $this->call(RolePermissionSeeder::class);
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a
     }
 }

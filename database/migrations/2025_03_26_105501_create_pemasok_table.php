@@ -13,12 +13,8 @@ return new class extends Migration
     {
         Schema::create('pemasok', function (Blueprint $table) {
             $table->id();
-            $table->string('pemasok_id')->unique(); // No TB-xxx
+            $table->string('pemasok_id');
             $table->string('nama')->nullable();
-            $table->foreignId('status_pemasok_id')->nullable()->constrained('status_pemasok')->nullOnDelete(); // ex: C.O.D, Net 30
-            $table->boolean('dihentikan')->default(false);
-
-            // Info alamat
             $table->string('alamat_1')->nullable();
             $table->string('alamat_2')->nullable();
             $table->string('alamatpajak_1')->nullable();
