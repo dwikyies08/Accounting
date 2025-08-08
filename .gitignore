@@ -1,0 +1,73 @@
+<<<<<<< HEAD
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+"database.sqlite" 
+=======
+# Laravel
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+.env
+# .env.*
+.phpunit.result.cache
+Homestead.yaml
+Homestead.json
+npm-debug.log
+yarn-error.log
+
+# Laravel Telescope
+storage/telescope
+
+# Laravel Ignition
+*.blade.php.php
+
+# Vite
+/public/hot
+/public/build
+/.vite
+
+# IDE & OS
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+
+# Log Files
+/storage/logs/*.log
+
+# Backup or local files
+*.bak
+*.tmp
+*.swp
+
+# Testing
+coverage/
+.phpunit.cache
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a

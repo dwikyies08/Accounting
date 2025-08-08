@@ -1,0 +1,49 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+<<<<<<< HEAD
+        "@lucide/svelte": "^0.514.0",
+        "@tailwindcss/postcss": "^4.1.10",
+        "@tailwindcss/vite": "^4.0.0",
+        "autoprefixer": "^10.4.21",
+        "axios": "^1.7.4",
+        "clsx": "^2.1.1",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.5.5",
+        "svelte": "5.33.18",
+        "tailwind-merge": "^3.3.1",
+        "tailwind-variants": "^1.0.0",
+        "tailwindcss": "^4.0.0",
+        "tw-animate-css": "^1.3.4",
+        "vite": "^6.0"
+    },
+    "dependencies": {
+        "@sveltejs/vite-plugin-svelte": "^5.1.0",
+        "@tailwindcss/vite": "^4.1.7",
+        "alpinejs": "^3.14.9",
+        "bootstrap-select": "^1.13.18",
+        "select2": "^4.1.0-rc.0",
+        "sweetalert2": "^11.6.13",
+        "toastr": "^2.1.4",
+        "tom-select": "^2.4.3"
+=======
+        "autoprefixer": "^10.4.20",
+        "axios": "^1.7.4",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^1.0",
+        "postcss": "^8.4.47",
+        "tailwindcss": "^3.4.13",
+        "vite": "^6.0"
+    },
+    "dependencies": {
+        "select2": "^4.1.0-rc.0",
+        "toastr": "^2.1.4"
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a
+    }
+}

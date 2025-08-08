@@ -1,0 +1,93 @@
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+<<<<<<< HEAD
+
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use App\Models\ModulUtama\Aktiva\AkunAktiva;
+use Database\Seeders\MetodePenyusutanSeeder;
+=======
+use Illuminate\Database\Seeder;
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+<<<<<<< HEAD
+        User::factory(10)->create();
+
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        User::factory()->create([
+            'name' => 'Superadmin',
+            'email' => 'superadmin@gmail.com',
+        ]);
+
+        // Panggil seeder lain
+        $this->call([
+            RolePermissionSeeder::class,
+            \Laravolt\Indonesia\Seeds\DatabaseSeeder::class,
+            TipeAkunSeeder::class,
+            TipeBarangSeeder::class,
+            TipeDepartemenSeeder::class,
+            TipePelangganSeeder::class,
+            TipePersediaanSeeder::class,
+            StatusPengajuanSeeder::class,
+            StatusKeluargaSeeder::class,
+            StatusPemasokSeeder::class,
+            ReligionSeeder::class,
+            GenderSeeder::class,
+            MataUangSeeder::class,
+            SatuanSeeder::class,
+            GudangSeeder::class,
+            KategoriBarangSeeder::class,
+            RoomTypeSeeder::class,
+            MetodePenyusutanSeeder::class,
+            ProyekSeeder::class,
+            ClusterSeeder::class,
+            SyaratSeeder::class,
+            // AkunAktivaSeeder::class,
+            // AkunAkumulasiPenyusutanSeeder::class,
+            JenisHargaSeeder::class,
+            UnitBarangSeeder::class,
+            MetodePenyesuaianSeeder::class,
+            NilaiPembulatanSeeder::class,
+            SumberNilaiAsalSeeder::class,
+            AkunSeeder::class,
+            PajakSeeder::class,
+            PemasokSeeder::class,
+            PenjualSeeder::class,
+            PelangganSeeder::class,
+            MasterBiayaLahanSeeder::class,
+            DataLahanSeeder::class,
+            UnitPropertieSeeder::class,
+            AkunBiayaPenyusutanSeeder::class,
+            KategoriTiketKonsumenSeeder::class,
+            TipePembayaranSeeder::class,
+            KategoriPembayaranSeeder::class,
+            MasterPersyaratanKonsumenSeeder::class,
+            MasterBiayaKonsumenSeeder::class,
+            PekerjaSeeder::class,
+            SiklusPembayaranSeeder::class,
+        ]);
+=======
+        \App\Models\User::factory(10)->create();
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        
+        $this->call(RolePermissionSeeder::class);
+>>>>>>> 8aec55e85e9d6a9b53b74c0e47ea6990ac3bf94a
+    }
+}
