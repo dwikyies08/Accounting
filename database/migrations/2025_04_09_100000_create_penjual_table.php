@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('penjual', function (Blueprint $table) {
             $table->id();
-            // Identitas dasar
             $table->string('nama_depan_penjual')->nullable();
             $table->string('nama_belakang_penjual')->nullable();
             $table->string('jabatan')->nullable();
-            $table->boolean('dihentikan')->default(false);
-
-            // Kontak
+            $table->boolean('dihentikan')->nullable()->default(false);
             $table->string('no_kantor_1_penjual')->nullable();
             $table->string('no_kantor_2_penjual')->nullable();
             $table->string('no_ekstensi_1_penjual')->nullable();
@@ -29,9 +26,14 @@ return new class extends Migration
             $table->string('no_fax_penjual')->nullable();
             $table->string('pager_penjual')->nullable();
             $table->string('email_penjual')->nullable();
-
-            // Lain-lain
-            $table->text('memo')->nullable();
+            $table->string('memo')->nullable();
+            $table->string('fileupload_1')->nullable();
+            $table->string('fileupload_2')->nullable();
+            $table->string('fileupload_3')->nullable();
+            $table->string('fileupload_4')->nullable();
+            $table->string('fileupload_5')->nullable();
+            $table->string('fileupload_6')->nullable();
+            $table->string('fileupload_7')->nullable();
             $table->timestamps();
         });
     }
